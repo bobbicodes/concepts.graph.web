@@ -1,5 +1,7 @@
 (ns concepts.graph.web
-  (:require [reagent.core :as r]))
+  (:require [reagent.core :as r]
+            [concepts.graph :as graph]
+            ["viz.js" :as viz]))
 
 (defn app []
   [:div#app
