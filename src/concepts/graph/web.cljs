@@ -1,9 +1,9 @@
-(ns shadow-reagent.app
+(ns concepts.graph.web
   (:require [reagent.core :as r]))
 
 (defn app []
   [:div#app
-   [:h1 "shadow-cljs reagent template"]])
+   [:h1 "concepts.graph.web"]])
 
 (defn render []
   (r/render [app]
