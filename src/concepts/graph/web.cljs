@@ -21,12 +21,21 @@
 
 (defn node [s x y]
   [:g 
-   [rect (* (count s) 7) 11 x y]
-   [text s (+ 13 x) (+ 9 y)]])
+   [rect (+ 3 (* (count s) 6)) 11 (+ x 18 (* -2.8 (count s))) y]
+   [text s (+ 19.5 x (* -0.01 (count s))) (+ 9 y)]])
 
 (defn edge [x1 y1 x2 y2]
-  [:line {:x1 x1 :y1 y1 :x2 x2 :y2 y2
-          :stroke "black"}])
+  [:g 
+   [:line 
+    {:x1     x1 :y1     y1
+     :x2     x2 :y2     y2
+     :stroke "black"}]
+   [:polygon
+    {:points 
+     (apply str (interpose " "
+                           [x2 (+ y2 2)
+                            (- x2 2) (- y2 4)
+                            (+ x2 2) (- y2 4)]))}]])
 
 (defn app []
   [:div#app
@@ -34,8 +43,7 @@
    [:svg {:width    "100%"
           :view-box (str "0 0 100 100")}
     [node "Root" 30 5]
-    [edge 45 16 45 40]
-    [:polygon {:points "45 41 43 37 47 37"}]]])
+    [edge 50 16 50 40]]])
 
 (defn render []
   (r/render [app]
