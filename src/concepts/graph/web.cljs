@@ -34,7 +34,8 @@
    [:svg {:width    "100%"
           :view-box (str "0 0 100 100")}
     [node "Root" 30 5]
-    [edge 45 16 45 40]]])
+    [edge 45 16 45 40]
+    [:polygon {:points "45 41 43 37 47 37"}]]])
 
 (defn render []
   (r/render [app]
